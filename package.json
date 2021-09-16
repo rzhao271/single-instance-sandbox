@@ -1,0 +1,16 @@
+{
+  "name": "single-instance",
+  "productName": "single-instance",
+  "description": "A sandbox for the app.requestSingleInstanceLock API",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "Raymond Zhao",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "13.1.7"
+  }
+}
