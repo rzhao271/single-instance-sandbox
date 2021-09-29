@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Debug Renderer Process",
+            "type": "pwa-chrome",
+            "request": "launch",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+            "windows": {
+                "runtimeExecutable": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+            },
+            "runtimeArgs": [
+                "${workspaceRoot}/node_modules/.bin/electron.ps1",
+                "${workspaceRoot}/main.js"
+            ],
+            "webRoot": "${workspaceRoot}",
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ],
+}

@@ -40,11 +40,11 @@ app.on('first-instance-ack', (event, data) => {
   // We need to setTimeout here, otherwise the cleanup does not proceed properly,
   // leading to the lockfile not being found upon attempting to run a
   // second instance for the second time
-  setTimeout(() => app.quit(), 200);
+  // setTimeout(() => app.quit(), 200);
   // app.quit();
 });
 
-const gotLock = app.requestSingleInstanceLock(obj);
+const gotLock = app.requestSingleInstanceLock();
 
 let myWindow;
 if (!gotLock) {
@@ -55,13 +55,15 @@ if (!gotLock) {
   // There are a lot of fields in the callback here.
   // Is there any way to organize them?
   app.on('second-instance', (event, commandLine, workingDirectory, additionalData, ackCallback) => {
+    // event.preventDefault();
     console.log('Received data from second instance');
     console.log(JSON.stringify(additionalData));
-    console.log('Sending data back to the second instance before timeout expires');
     // Potential issue:
     // There is a breaking change here, since if the user doesn't call this new
     // callback, they are forced to wait for the timer on the Chromium side to kick in.
-    ackCallback(returnObj);
+    // console.log('Sending data back to the second instance before timeout expires');
+    // ackCallback();
+    // ackCallback(returnObj);
   });
 
   // Create myWindow, load the rest of the app, etc...
